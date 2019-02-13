@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sweet UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function time() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+
+            m = checkTime(m);
+
+            document.getElementById('clock').innerHTML = h + ":" + m;
+            console.log(h + ":" + m);
+            var t = setTimeout(time, 800);
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };
+            return i;
+        }
+
+    </script>
+
+
+</head>
+
+<body onLoad="time()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3" id="sidebar">
+                <div class="row" id="speedometer">
+                    <div class="column">
+                        <img id="topleft" style="width: 355px;" src="./media/Drive-S.svg"/>
+                    </div>
+                </div>
+                <img src="./media/menu/menu.svg" id="menu-button" class="side_menu_button" onclick="openNav()" />
+                <div id="mySidenav" class="sidenav">
+                    
+                    <div class="container col-12">
+                        <ul class="nav nav-tabs row">
+                            <li class="active">
+                                <a data-toggle="tab" href="#home">
+                                    <img id="settings" style="height: 50px; width: 30px;" src="./media/menu/settings.svg">
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu1">
+                                    <img id="spotify" style="height: 50px; width: 30px;" src="./media/music/spotify.svg">
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu2">
+                                    <img id="radio" style="height: 50px; width: 30px;" src="./media/music/radio.svg">
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu3">
+                                    <img id="aux" style="height: 50px; width: 30px;" src="./media/music/aux-cable.svg">
+                                </a>
+                            </li>
+                            <li>
+                                <!-- This is a hidden div element for use with WIFI -->
+                                <a data-toggle="tab" href="#menu_wifi">
+                                    <img id="wifi_ls" style="display: none;" src="./media/menu/settings.svg">
+                                </a>
+                            </li>
+                            <!-- This is a hidden div element for use with Bluetooth -->
+                            <li>
+                                <a data-toggle="tab" href="#menu_bluetooth">
+                                    <img id="bluetooth_ls" style="display: none;" src="./media/menu/settings.svg">
+                                </a>
+                            </li>
+                            <!-- This is a hidden div element for use with Volume -->
+                            <li>
+                                <a data-toggle="tab" href="#menu_vol">
+                                    <img id="volume_ls" style="display: none;" src="./media/menu/settings.svg">
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade">
+                                <h3>Settings</h3>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <button type="button" class="col btn">Rock</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="col btn">Pop</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="col btn">Funk</button>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <input type="range" min="1" max="100" value="50" class="col-12">
+                                <center>
+                                    <h5>Treble</h5>
+                                </center>
+                                <input type="range" min="1" max="100" value="50" class="col-12">
+                                <center>
+                                    <h5>Bass</h5>
+                                </center>
+                                <input type="range" min="1" max="100" value="50" class="col-12">
+                                <center>
+                                    <h5>Mids</h5>
+                                </center>
+                            </div>
+                            <div id="menu1" class="tab-pane  in active">
+                                <img style="display: block; margin-left: auto; margin-right: auto; height: 350px; position: relative; top: 11git0px; width: 100%;"
+                                    src="./media/music/guy.svg">
+
+                                <center>
+                                    <audio id='audio' controls>
+
+                                        <source id='source'src="media/musicmedia/Kappa.mp3" type="audio/mpeg">
+										Your
+                                        browser does not support the audio element.
+                                    </audio>
+                                </center>
+                            </div>
+                            <div id="menu2" class="tab-pane fade" style="text-align: center">
+                                <div class="row">
+                                        <div class="col-2">
+                                                <img style="margin-top: 50px" id="radioSwitch" onclick="toggleRadio()" src="media/music/am.svg" />
+                                            </div>
+                                    <div class="col-8">
+                                        <img src="media/music/radio-scanner.svg" style="width: 234px; margin: 0 auto;" />
+                                    </div>
+                                    <div class="col-2">
+                                            
+                                        </div>
+                                   
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="col-3 btn" style="margin: 10px auto;">Scan</button>
+                                </div>
+                                <div class="row" style="padding: 0 10px">
+                                    <button type="button" class="col-2 btn" style="margin: 10px;">93.2</button>
+                                    <button type="button" class="col-2 btn" style="margin: 10px;">94.7</button>
+                                    <button type="button" class="col-2 btn" style="margin: 10px;">101.3</button>
+                                    <button type="button" class="col-2 btn" style="margin: 10px;">108.9</button>
+                                </div>
+                            </div>
+                            <div id="menu3" class="tab-pane fade">
+                                <p style="text-align: center;">No Sound Source Connected.</p>
+                            </div>
+                            <div id="menu_wifi" class="tab-pane fade">
+                                <h3>WIFI</h3>
+
+                                <button type="button" class="col-5 btn btn-danger active core_button " data-toggle="button">Off</button>
+                                <button type="button" class="col-5 btn btn-primary core_button" data-toggle="button">On</button>
+                                <button type="button" class="col-10 btn btn-light core_button" data-toggle="button">FBI
+                                    Van #451</button>
+                                <button type="button" class="col-10 btn btn-light core_button" data-toggle="button">Senpai</button>
+                                <button type="button" class="col-10 btn btn-primary core_button" data-toggle="button">Pretty
+                                    Fly For A Wifi!</button>
+                                <button type="button" class="col-10 btn btn-light core_button" data-toggle="button">Shiroe</button>
+                                <button type="button" class="col-10 btn btn-light core_button" data-toggle="button">Akatsuki</button>
+                                <button type="button" class="col-10 btn btn-light core_button" data-toggle="button">More(2)...</button>
+                            </div>
+                            <div id="menu_bluetooth" class="tab-pane fade">
+                                <h3>BLUETOOTH</h3>
+                                <button type="button" class="col-5 btn btn-danger active core_button">Off</button>
+                                <button type="button" class="col-5 btn btn-primary core_button">On</button>
+                                <button type="button" class="col-10 btn btn-light core_button">Holo</button>
+                                <button type="button" class="col-10 btn btn-light core_button">Lawrence</button>
+                                <button type="button" class="col-10 btn btn-primary core_button">Deku's Phone {Call Audio,
+                                    Speakers}</button>
+                                <button type="button" class="col-10 btn btn-light core_button">Kirito</button>
+                                <button type="button" class="col-10 btn btn-light core_button">Asuna</button>
+                                <button type="button" class="col-10 btn btn-light core_button">More(7)...</button>
+                            </div>
+                            <div id="menu_vol" class="tab-pane fade">
+                                <h3>Volume</h3>
+                                <center>
+                                    <h3 class="col-12"> - <input type="range" id="myRange1" min="1" max="100" value="50" class="col-10 slider">
+                                        + </h3>
+                                    <h5>Volume</h5>
+                                    <button type="button" class="col-5 btn btn-danger active core_button " onclick="toggleVol_(999)" data-toggle="button">Mute</button>
+                                </center>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#menu1">
+                                        <img style="height: 50px; width: 30px;" src="./media/menu/musical-note.svg">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab">
+                                        <img style="height: 50px; width: 30px;" src="./media/menu/gps-arrow.svg">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab">
+                                        <img style="height: 50px; width: 30px;" src="./media/menu/car-compact.svg">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab">
+                                        <img style="height: 50px; width: 30px;" src="./media/menu/thermometer.svg">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab">
+                                        <img style="height: 50px; width: 30px;" src="./media/menu/settings.svg">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="container-fluid border-dark rounded" id="top-bar">
+                        <dir class="row">
+                            <div class="col-sm rounded-circle border-dark">
+                                <img src="./media/topbar/highbeam-circle.svg" class="imgs" alt="Light Beam">
+                            </div>
+                            <div class="col-sm rounded-circle border-dark">
+                                <img src="./media/topbar/doors-circle.svg" class="imgs" alt="Light Beam">
+                            </div>
+
+                            <div class="col-sm rounded-circle border-dark">
+
+                            </div>
+                            <div class="col-sm rounded-circle border-dark">
+
+                            </div>
+
+                            <div class="col-sm rounded-circle border-dark">
+                                <img src="./media/topbar/sound-circle.svg" id="volume" onclick="toggleVol()" class="imgs"
+                                    alt="Light Beam">
+                            </div>
+
+                            <div class="col-sm rounded-circle border-dark">
+                                <img src="./media/topbar/bluetooth-circle.svg" id="bluetooth" onclick="toggleBlueTooth()"
+                                    class="imgs" alt="Light Beam">
+                            </div>
+
+                            <div class="col-sm rounded-circle border-dark">
+                                <img src="./media/topbar/wifi-circle.svg" id="wifi" class="imgs" onclick="toggleWifi()"
+                                    alt="Light Beam">
+                            </div>
+                            <div class="col-sm textBig rounded-circle" id="clock">
+                            </div>
+                        </div>
+
+                    </div>
+					<div id="togBar" style="display: none;" class="row">
+                    <div class="container-fluid border-dark rounded justify-content-between" style="" id="top-bar">
+                       	 
+					   <div class ="border-dark">
+							<h2 class="voice_me">Set Destination to 112 Southway Road</h2>
+						
+					   </div>
+					   <div class ="border"></div>
+					    <div class ="border-dark col-5 ">
+						Listening for Commands...
+					   </div>
+					   <div class ="border-dark  float-right">
+							<h2 class="float-right voice_car">Ok! Setting your GPS to 112 Southway Road. </h2>
+					   </div>
+					   
+					   
+                    </div>
+                </div>
+
+                <div class="notification">
+                    <h3>Arriving in 10 minutes to 112 Southway Rd</h3>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+       
+        <div class="container">
+            <h2>Dynamic Tabs</h2>
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a data-toggle="tab" href="#home">Home</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu1">Menu 1</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu2">Menu 2</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu3">Menu 3</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane in active">
+                    <h3>HOME</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua.</p>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <h3>Menu 1</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.</p>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <h3>Menu 2</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium, totam
+                        rem aperiam.</p>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <h3>Menu 3</h3>
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                        explicabo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row controlPanel">
+        <div class="col">
+            <div>
+                <button onClick='switchSong()'; style="width: 0;
+                height: 0px;
+                border-left: 25px solid transparent;
+                border-right: 25px solid transparent;
+                border-bottom: 50px solid #555;
+                margin-left: 500px;
+                margin-top: 200px;">
+                </button>
+            </div>
+            <div>
+                <button style="width: 0;
+                height: 0;
+                border-top: 25px solid transparent;
+                border-right: 50px solid #555;
+                border-bottom: 25px solid transparent;
+                margin-left: 400px;
+                margin-top: 20px;">
+                </button>
+                <button id="voice" onclick='toggleNotBar()' style=" height: 50px;
+                width: 50px;
+                background-color: #555;
+                border-radius: 50%;
+                margin-left: 37px;
+                margin-right: 37px;">
+                </button>
+                <button style="width: 0;
+                height: 0;
+                border-top: 25px solid transparent;
+                border-left: 50px solid #555;
+                border-bottom: 25px solid transparent;">
+                </button>
+            </div>
+            <div>
+                <button onClick='switchSong()' style="width: 0;
+                height: 0;
+                border-left: 25px solid transparent;
+                border-right: 25px solid transparent;
+                border-top: 50px solid #555;
+                margin-left: 500px;
+                margin-top: 20px;">
+                </button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <button onClick='goSetting();' style=" height: 50px;
+            width: 50px;
+            background-color: #555;
+            border-radius: 50%;
+            margin-left: 37px;
+            margin-right: 37px;
+            margin-top: 50px;">
+                </button>
+                <button  onClick='goSpotify();'style=" height: 50px;
+            width: 50px;
+            background-color: #555;
+            border-radius: 50%;
+            margin-left: 37px;
+            margin-right: 37px;
+            margin-top: 50px;">
+                </button>
+                <button onClick='goRadio();' style=" height: 50px;
+            width: 50px;
+            background-color: #555;
+            border-radius: 50%;
+            margin-left: 37px;
+            margin-right: 37px;
+            margin-top: 50px;">
+                </button>
+                <button onClick='goAux();' style=" height: 50px;
+            width: 50px;
+            background-color: #555;
+            border-radius: 50%;
+            margin-left: 37px;
+            margin-right: 37px;
+            margin-top: 50px;">
+                </button>
+                <button style=" height: 50px;
+            width: 50px;
+            background-color: #555;
+            border-radius: 50%;
+            margin-left: 37px;
+            margin-right: 37px;
+            margin-top: 50px;">
+                </button>
+            </div>
+            <div class="row">
+                <div class="slidecontainer" style="margin-top: 20px">
+                    <input type="range" id="myRange2" min="1" max="100" value="50" onclick='toggleVol_();' class="sliderz" >
+                </div>
+            </div>
+            <div class="row">
+                <button style=" height: 50px;
+                    width: 50px;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin-left: 37px;
+                    margin-right: 37px;
+                    margin-top: 150px;">
+                </button>
+                <button style=" height: 50px;
+                    width: 50px;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin-left: 37px;
+                    margin-right: 37px;
+                    margin-top: 150px;">
+                </button>
+            </div>
+            <div class="row">
+                <button style=" height: 50px;
+                    width: 50px;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin-left: 37px;
+                    margin-right: 37px;
+                    margin-top: 50px;
+                    margin-bottom: 50px">
+                </button>
+                <button style=" height: 50px;
+                    width: 50px;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin-left: 37px;
+                    margin-right: 37px;
+                    margin-top: 50px;
+                    margin-bottom: 50px">
+                </button>
+            </div>
+            <div class="row">
+                <p style="
+                    margin-left: 55px;
+                    margin-right: 37px;">P
+                </p>
+                <p style="
+                    margin-left: 75px;
+                    margin-right: 37px;">D
+                </p>
+                <p style="
+                    margin-left: 75px;
+                    margin-right: 37px;">R
+                </p>
+            </div>
+            <div class="row">
+                <button onClick="park()" style=" height: 50px;
+                    width: 50px;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin-left: 37px;
+                    margin-right: 37px;">
+                </button>
+                <button onClick="drive()" style=" height: 50px;
+                    width: 50px;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin-left: 37px;
+                    margin-right: 37px;">
+                </button>
+                <button onClick="reverse()" style=" height: 50px;
+                    width: 50px;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin-left: 37px;
+                    margin-right: 37px;">
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--<iframe src="../SteeringWheel/index.html" class="iframe_size" id="controls"></iframe>-->
+
+    <!--CAR CONTROLS
+    <div class="container">
+        <div class="onTop2">
+            <span id="currentGear"></span>
+            <br>
+            <input type="radio" name="gear" value="park" onclick="gearshift('park')" checked> P
+            <br>
+            <input type="radio" name="gear" value="drive" onclick="gearshift('drive')"> R
+            <br>
+            <input type="radio" name="gear" value="reverse" onclick="gearshift('reverse')"> D
+            <br>
+
+        </div>
+        <div class="onTop">
+            <div>
+                <button type="button" style="visibility:hidden" disabled>O</button>
+                <button type="button" style="padding: 5px">^</button>
+
+            </div>
+            <div>
+                <button type="button" disabled></button>
+                <button type="button" style="padding: 5px">O</button>
+                <button type="button" disabled>></button>
+
+            </div>
+            <div>
+                <button type="button" style="visibility:hidden" disabled>O</button>
+                <button type="button" style="padding: 5px">v</button>
+
+            </div>
+        </div>
+    </div>
+    -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/main.js"></script>
+</body>
+
+
+<!--<script>//This script os for the controls
+
+    var gear = 'park';
+    //var sliderVal = 0;
+
+    function gearshift(value) {
+        gear = value;
+        document.getElementById("currentGear").innerHTML = gear.toUpperCase();
+
+    }
+        /*function slideshift(){
+          sliderVal = document.getElementById("rangeSlider").value;
+          document.getElementById("slideValue").innerHTML = sliderVal;
+        }*/
+</script>-->
+
+<system.webServer>
+    <httpProtocol allowKeepAlive="true">
+        <customHeaders>
+            <add name="X-Frame-Options" value="*" />
+        </customHeaders>
+    </httpProtocol>
+</system.webServer>
+
+</html>
